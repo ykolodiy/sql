@@ -1,0 +1,134 @@
+<!---Get data from Db--->
+<cfquery name="SupernameofQuery">
+SELECT aaa, sss, ddd,
+FROM dddd
+WHERE ddddd = '#arguments.email#' AND sdsadsadsa = '#arguments.name#' ;
+
+
+SELECT NAME AS 'FUCKING NAME' FROM COUNTRY ORDER BY NAME LIMIT 5;
+
+SELECT 1+2;
+1+2
+3
+
+SELECT COUNT(*) FROM COUNTRY;
+update customer set ad = 'dfsdf' where id=2;
+
+Select name, population/1000 as popmm from country where population >=1000 order by population desc;
+
+
+Create table test (
+	a integer,
+	b text
+);
+insert into test values (1, 'a');
+insert into test values (2, 'b');
+
+
+
+drop table if exist test;
+
+
+insert into test (a,b,c) select id,name,desc from item;
+
+
+ALTER TABLE TEST ADD D TEXT;  -- NEW COLUMN D CREATED
+
+A=1 B=0
+SELECT
+CASE WHEN A THEN 'TRUE' ELSE 'FALSE' END AS BOOLA,
+CASE WHEN B THEN 'TRUE' ELSE 'FALSE' END AS BOOLb,
+FROM BOOLTEST
+RESULT: BOOLA=TRUE BOOLB=FALSE
+
+OR
+SELECT
+CASE a WHEN 1 THEN 'TRUE' ELSE 'FALSE' END AS BOOLA,
+CASE B WHEN 1 THEN 'TRUE' ELSE 'FALSE' END AS BOOLb,
+FROM BOOLTEST
+
+
+JOINTS
+SELECT Customer.CustomerID, Orders.CustomerID
+FROM Customer
+JOINT Orders
+ON Customer.CustomerID=Orders.CustomerID
+;
+// numbers
+
+select 1/2;  doesnt work
+select 1.0/2;  = 0.5
+
+select cast(1 as real) /2;  = 0.5
+
+select round(2.5555, 0); = 3.0
+
+
+select datetime('now', '-5 day');
+
+
+-- TRANSACTION - GROUP OF OPERATION 1 FAIL - ALL FAILS NOTHING DONE
+
+BEGIN TRANSACTION;  -- SPEED UP PERFORMANCE
+ INSERT INTO T1;
+ SELECT FROM TABLE 2;
+ROLLBACK; -- IT CANCEL ALL
+END TRANSACTION;
+
+SELECT ALL FROM T1;
+
+
+TRIGGERS - OPERATIONS THAT AUTOMATICALLY PERFORMS WHEN DATABASE EVENT OCCURS  (INSERT ROWS UPDATE ANOTHER TABLE)
+
+
+CREATE TRIGGER NAMEOFTRIGGER AFTER INSERT ON TABLESALE
+ BEGIN
+   UPDATE CUSTOMER SET ORDERID=NEW.ID WHERE     C.ID=NEWC.ID;
+ END;
+
+
+
+-- SUBSELECT
+
+SELECT W, E, FROM
+(SELECT F,G, FROM Y
+)
+
+-- VIEW
+
+CREATE VIEW V AS 
+   SELECT ID, TITLE FROM TRACK;
+
+SELECT * FROM V;
+
+
+
+
+DROP VIEW V;
+
+-- procedures
+
+CREATE PROCEDURE  (OR proc) getwashingtonemployees
+AS
+  SELECT E.FIRSTNAME, L.CITY
+  FROM EMPLOYEE AS E
+  INNER JOIN location AS L
+  ON E.LOCATIONID = L.LOCATIONID
+  WHERE ;.STATE = 'IL
+
+NOW NEW WINDOW > EXEC getwashingtonemployees
+
+
+
+
+CREATE TABLE Orders (
+    OrderID int NOT NULL,
+    OrderNumber int NOT NULL,
+    PersonID int,
+    PRIMARY KEY (OrderID),
+    CONSTRAINT FK_PersonOrder FOREIGN KEY (PersonID) REFERENCES Persons(PersonID)
+);
+
+
+
+
