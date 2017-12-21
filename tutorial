@@ -131,4 +131,9 @@ CREATE TABLE Orders (
 
 
 
+select persons.lastname, houses.houseid
+from persons
+left join houses
+on persons.personid = houses.personid;
+
 
