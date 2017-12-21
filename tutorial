@@ -137,3 +137,20 @@ left join houses
 on persons.personid = houses.personid;
 
 
+
+
+create function dbo.getaddress (@ID int)
+returns varchar(100)
+as
+begin
+declare @address varchar(100)
+select @address = address from Customers
+where ID = @ID
+return @address
+end
+
+>> execute
+>> new window: select * , dbo.getaddress(ID) from Customers
+
+or run standalone
+>>Select dbo.getaddress(3) 
