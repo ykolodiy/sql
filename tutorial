@@ -154,3 +154,9 @@ end
 
 or run standalone
 >>Select dbo.getaddress(3) 
+
+copy table
+If NEW_TABLE already exists then ...
+insert into new_table select * from old_table
+If you want to create NEW_TABLE based on the records in OLD_TABLE ...
+create table new_table as select * from old_table
