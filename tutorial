@@ -160,3 +160,89 @@ If NEW_TABLE already exists then ...
 insert into new_table select * from old_table
 If you want to create NEW_TABLE based on the records in OLD_TABLE ...
 create table new_table as select * from old_table
+
+
+
+Tables
+
+This is a query to get all Oracle tables that can be viewed by the current user. 
+
+select TABLE_NAME, OWNER from SYS.ALL_TABLES order by OWNER, TABLE_NAME 
+
+The query can be filtered to return tables for a given schema by adding a where OWNER = 'some_schema' clause to the query.
+
+ 
+
+Schemas
+
+This is a query to get all Oracle schemas in an Oracle database instance. 
+
+select USERNAME from SYS.ALL_USERS order by USERNAME
+
+ 
+
+Views
+
+This is a query to get all Oracle views that can be viewed by the current user. 
+
+select VIEW_NAME, OWNER from SYS.ALL_VIEWS order by OWNER, VIEW_NAME 
+
+The query can be filtered to return views for a specific schema by adding a where OWNER = 'some_schema' clause to the query.
+
+ 
+
+Packages
+
+This is a query to get all Oracle packages that can be viewed by the current user. 
+
+select OBJECT_NAME, OWNER from SYS.ALL_OBJECTS where UPPER(OBJECT_TYPE) = 'PACKAGE' order by OWNER, OBJECT_NAME 
+
+To query for package bodies, substitute PACKAGE BODY for PACKAGE. 
+
+The query can be filtered to return packages for a specific schema by adding a where OWNER = 'some_schema' clause to the query.
+
+ 
+
+Procedures
+
+This is a query to get all Oracle procedures that can be viewed by the current user. 
+
+select OBJECT_NAME, OWNER from SYS.ALL_OBJECTS where upper(OBJECT_TYPE) = upper('PROCEDURE') order by OWNER, OBJECT_NAME 
+
+The query can be filtered to return procedures for a specific schema by adding a where OWNER = 'some_schema' clause to the query.
+
+ 
+
+Procedure Columns
+
+This is a query to get the columns in an Oracle procedure. 
+
+select OWNER, OBJECT_NAME, ARGUMENT_NAME, DATA_TYPE, IN_OUT from SYS.ALL_ARGUMENTS order by OWNER, OBJECT_NAME, SEQUENCE
+
+ 
+
+Functions
+
+This is a query to get all Oracle functions for the current user. 
+
+select OBJECT_NAME, OWNER from SYS.ALL_OBJECTS where upper(OBJECT_TYPE) = upper('FUNCTION') order by OWNER, OBJECT_NAME 
+
+The query can be filtered to return functions for a specific schema by adding a where OWNER = 'some_schema' clause to the query.
+
+ 
+
+Triggers
+
+This is a query to get all Oracle triggers for the current user. 
+
+select TRIGGER_NAME, OWNER from SYS.ALL_TRIGGERS order by OWNER, TRIGGER_NAME 
+
+The query can be filtered to return triggers for a specific schema by adding a where OWNER = 'some_schema' clause to the query.
+
+ 
+
+Indexes
+
+This is a query to get all Oracle indexes. 
+
+select INDEX_NAME, TABLE_NAME, TABLE_OWNER from SYS.ALL_INDEXES order by TABLE_OWNER, TABLE_NAME, INDEX_NAME
