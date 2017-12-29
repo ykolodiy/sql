@@ -246,3 +246,8 @@ Indexes
 This is a query to get all Oracle indexes. 
 
 select INDEX_NAME, TABLE_NAME, TABLE_OWNER from SYS.ALL_INDEXES order by TABLE_OWNER, TABLE_NAME, INDEX_NAME
+
+
+NATURAL JOIN
+select firstname, department from employees natural join departments;
+select firstname, department from employees  join departments using (managerid);
