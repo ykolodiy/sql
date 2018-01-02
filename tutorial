@@ -267,3 +267,12 @@ SELECT SQ_DEMO.NEXTVAL FROM DUAL;
 
 //NOW EXECUTE
 SELECT SQ_DEMO.CURRVAL FROM DUAL;
+
+
+
+
+ENABLE OUTPUT
+ops$tkyte@ORA817DEV.US.ORACLE.COM> exec dbms_output.enable(10000);
+ops$tkyte@ORA817DEV.US.ORACLE.COM> exec dbms_output.put_line( 'x' );
+ops$tkyte@ORA817DEV.US.ORACLE.COM> set serveroutput on
+ops$tkyte@ORA817DEV.US.ORACLE.COM> exec dbms_output.put_line( 'x' );
