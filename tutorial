@@ -1,3 +1,13 @@
+COMPARE
+SELECT  p.isbn13,  p.name, pl.title, 
+(CASE WHEN TRIM(p.name)=TRIM(pl.title) THEN 'TRUE' ELSE 'FALSE' END) AS BOOL
+FROM tbl_product_locale pl LEFT OUTER JOIN tbl_product p 
+  ON (pl.product_id = p.product_id)
+WHERE pl.locale_code_id = 1;
+
+
+
+
 <!---Get data from Db---> 
 <cfquery name="SupernameofQuery">
 SELECT aaa, sss, ddd,
