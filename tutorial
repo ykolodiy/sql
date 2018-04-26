@@ -7,6 +7,19 @@ WHERE pl.locale_code_id = 1;
 
 
 
+INSERTED SELECT
+"SELECT BOM.BOM_ITEM_NUMBER
+FROM TBL_BOM_IMPORT BOM
+LEFT OUTER JOIN (SELECT p.isbn13 AS ISBN13, pl.title AS TITLE, pl.sap_name AS SAP
+FROM tbl_product_locale pl 
+INNER JOIN tbl_product p 
+ON (pl.product_id = p.product_id)
+WHERE pl.locale_code_id = 1) S
+ON (BOM.BOM_ITEM_NUMBER = S.ISBN13);"
+
+
+
+
 
 <!---Get data from Db---> 
 <cfquery name="SupernameofQuery">
