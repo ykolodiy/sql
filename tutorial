@@ -1,4 +1,4 @@
-COMPARE
+COMPARE 
 SELECT  p.isbn13,  p.name, pl.title, 
 (CASE WHEN TRIM(p.name)=TRIM(pl.title) THEN 'TRUE' ELSE 'FALSE' END) AS BOOL
 FROM tbl_product_locale pl LEFT OUTER JOIN tbl_product p 
