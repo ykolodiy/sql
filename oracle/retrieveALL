@@ -1,0 +1,53 @@
+package tryconenction;
+
+import java.sql.*;  
+
+
+class oracle2{  
+	
+	
+public static void main(String args[]){  
+try{  
+//step1 load the driver class  
+Class.forName("oracle.jdbc.driver.OracleDriver");  
+  
+//step2 create  the connection object  
+Connection con=DriverManager.getConnection(  
+"jdbc:oracle:thin:@);  
+  
+//step3 create the statement object  
+Statement stmt=con.createStatement();  
+//  int i = 1;
+//step4 execute query  
+ResultSet rs=stmt.executeQuery("select * from ");  
+ResultSetMetaData md = rs.getMetaData(); 
+int colCount = md.getColumnCount();  
+
+
+
+for (int i = 1; i <= colCount ; i++){ 
+	String col_name = md.getColumnName(i); 
+	System.out.print(col_name+" ");  }
+
+System.out.println();  
+
+
+while(rs.next())  
+{
+
+for (int i = 1; i <= colCount ; i++){ 
+	String col_name = md.getColumnName(i); 
+	System.out.print(rs.getString(col_name)+" ");  }
+
+System.out.println();  
+}
+
+
+
+//step5 close the connection object  
+con.close();  
+  
+}catch(Exception e){ System.out.println(e);}  
+  
+}  
+} 
